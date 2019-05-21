@@ -1,0 +1,11 @@
+repository/create.php 			- POST		- BODY
+repository/update.php			- PUT		- BODY
+repository/delete.php			- DELETE	- QUERY_STRING
+repository/get-all.php			- GET		
+repository/get-by-user.php		- GET		- QUERY_STRING
+repository/get-single.php		- GET		- QUERY_STRING
+
+follower/create.php 			- POST		- BODY
+follower/delete-by-user.php		- DELETE	- QUERY_STRING
+follower/get-all.php			- GET
+follower/get-by-user.php		- GET		- QUERY_STRING
