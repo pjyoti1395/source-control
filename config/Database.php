@@ -1,4 +1,7 @@
 <?php
+
+    // DAL
+
     class Database {
 
         private $host = "localhost";
