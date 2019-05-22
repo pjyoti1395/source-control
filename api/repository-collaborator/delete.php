@@ -11,19 +11,24 @@
     $pdo = $dtb->connect();
 
     $userId = $_GET['user_id'];
-    $repositoryId = $_GET['repository_id'];
+    $repositoryId = $_GET['rep_id'];
+
+    if(empty($userId) && empty($repositoryId)){
+        echo json_encode(["message" => "Invalid Parameters"]);
+        die();
+    }
 
     $userId = htmlspecialchars(strip_tags($userId));
     $repositoryId = htmlspecialchars(strip_tags($repositoryId));
 
-    $query = "DELETE FROM tbl_repository_star
+    $query = "DELETE FROM tbl_repository_collaborter
               WHERE user_id = :user_id 
-              AND repository_id = :repository_id;";
+              AND rep_id = :rep_id;";
 
     $stmt = $pdo->prepare($query);
     
     $stmt->bindParam('user_id', $userId);
-    $stmt->bindParam('repository_id', $repositoryId);
+    $stmt->bindParam('rep_id', $repositoryId);
 
     if($stmt->execute()){
         $count = $stmt->rowCount();
